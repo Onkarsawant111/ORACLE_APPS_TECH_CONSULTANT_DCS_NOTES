@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+ <dataTemplate name="ONKAR_GROUP_INVOICE" description="AP Invoice Details" 
+ Version="1.0" >
+ <properties>
+  <property name="debug_mode" value="on"/>
+ </properties> 
+ 
+  <parameters>       
+		    <parameter name="P_INVOICE_ID" dataType="number"/>		
+  </parameters>
+		
+ <dataQuery>
+  <sqlStatement name="Q1_ONKAR">
+  <![CDATA[ 
+   SELECT aia.invoice_id, aia.invoice_num, aia.invoice_currency_code,
+   aila.line_number, aila.line_type_lookup_code, aila.amount
+   FROM AP_INVOICES_ALL aia, ap_invoice_lines_all aila
+   WHERE 1=1
+   AND aia.invoice_id =aila.invoice_id
+   and aia.invoice_id =:P_INVOICE_ID
+   order by aia.invoice_num, aila.line_number
+   
+   ]]> 
+   </sqlStatement>
+  </dataQuery>
+  
+  <dataStructure>
+  
+
+ <group name="G_INVOICE_DATA" source="Q1_ONKAR">
+    <element name="INVOICE_ID" value="INVOICE_ID" /> 
+    <element name="INVOICE_NUM" value="INVOICE_NUM" /> 
+    <element name="INVOICE_CURRENCY_CODE" value="INVOICE_CURRENCY_CODE" /> 
+    <element name="LINE_NUMBER" value="LINE_NUMBER" /> 
+    <element name="LINE_TYPE_LOOKUP_CODE" value="LINE_TYPE_LOOKUP_CODE" /> 
+    <element name="AMOUNT" value="AMOUNT" /> 
+  </group>
+  
+<group name="G_INVOICE_DATA_HEADER" source="Q1_ONKAR">
+    <element name="INVOICE_ID" value="INVOICE_ID" /> 
+    <element name="INVOICE_NUM" value="INVOICE_NUM" /> 
+	<group name="G_INVOICE_DATA_LINES" source="Q1_ONKAR">
+        <element name="INVOICE_CURRENCY_CODE" value="INVOICE_CURRENCY_CODE" /> 
+        <element name="LINE_NUMBER" value="LINE_NUMBER" /> 
+        <element name="LINE_TYPE_LOOKUP_CODE" value="LINE_TYPE_LOOKUP_CODE" /> 
+        <element name="AMOUNT" value="AMOUNT" /> 
+	</group>
+ </group>
+  
+ </dataStructure>
+ </dataTemplate>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

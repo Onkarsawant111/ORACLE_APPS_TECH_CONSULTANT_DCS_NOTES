@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xapi:requestset xmlns:xapi="http://xmlns.oracle.com/oxp/xapi" type="bursting">
+
+  <xapi:request select="/ONKAR_BURSTING_REPORT_XML/LIST_G_EMP_DETAILS_IND/G_EMP_DETAILS_IND">
+    <xapi:delivery>
+      <xapi:filesystem id="File_Rep_IND" 
+	  output="/u01/install/APPS/fs1/inst/apps/ebsdb_apps/BURSTING_REPORT_ONKAR/IND.pdf"/> 
+	  <!-- output file for Indian nationality -->
+    </xapi:delivery>
+    <xapi:document output-type="pdf" delivery="File_Rep_IND">
+      <xapi:template type="rtf" 
+	  location="xdo://FND.ONKAR_BURSTING_REPORT_INDIA_EMP.en.00/?getSource=true" 
+	  filter=".//G_EMP_DETAILS_IND[NATIONALITY = 'IND']" />
+    </xapi:document>
+  </xapi:request>
+ 
+ 
+  <xapi:request select="/ONKAR_BURSTING_REPORT_XML/LIST_G_EMP_DETAILS_CAN/G_EMP_DETAILS_CAN">
+    <xapi:delivery>
+      <xapi:filesystem id="File_Rep_CAN" 
+	  output="/u01/install/APPS/fs1/inst/apps/ebsdb_apps/BURSTING_REPORT_ONKAR/CAN.pdf"/> 
+	  <!-- output file for Canadian nationality -->
+    </xapi:delivery>
+    <xapi:document output-type="pdf" delivery="File_Rep_CAN">
+      <xapi:template type="rtf" 
+	  location="xdo://FND.ONKAR_BURSTING_REPORT_CANADA_EMP.en.00/?getSource=true" 
+	  filter=".//G_EMP_DETAILS_CAN[NATIONALITY = 'CAN']" />
+    </xapi:document>
+  </xapi:request>
+  
+</xapi:requestset>

@@ -1,0 +1,6 @@
+ITEM_NUMBER,ORGANIZATION_CODE,DESCRIPTION,PRIMARY_UOM,ITEM_UPDATE
+f80000,Vision Operations,'Test new item desc,Ea,Update
+xxak555,Vision Operations,'Test new item desc,Ea,Create
+xxak666,Vision Operations,'Test new item desc,Ea,Create
+xxak777,Vision Operations,'Test new item desc,Ea,Create
+f12000,Vision Operations,'Test new item desc,Ea,Disable

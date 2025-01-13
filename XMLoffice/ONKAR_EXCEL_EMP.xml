@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<dataTemplate name="ONKAR_EMP_DETAILS" description="EMP Details" Version="1.0">
+  <properties>
+    <property name="debug_mode" value="on"/>
+  </properties>
+
+  <!-- 
+  <parameters>       
+    <parameter name="P_INVOICE_ID" dataType="number"/>		
+  </parameters> 
+  -->
+
+  <dataQuery>
+    <sqlStatement name="Q1_ONKAR">
+      <![CDATA[ 
+        SELECT EMPLOYEE_ID, FIRST_NAME FROM EMPLOYEES
+      ]]> 
+    </sqlStatement>
+  </dataQuery>
+
+  <dataStructure>
+    <group name="G_EMPLOYEE_ID" source="Q1_ONKAR">
+      <element name="EMPLOYEE_ID" value="EMPLOYEE_ID"/> 
+      <element name="FIRST_NAME" value="FIRST_NAME"/> 
+    </group>
+  </dataStructure>
+</dataTemplate>

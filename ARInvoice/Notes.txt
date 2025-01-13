@@ -1,0 +1,17 @@
+--Seeded Info--
+Interface Approach : Public API --AR_INVOICE_API_PUB.create_single_invoice
+Interface Table : Not Available
+Error Table : 
+Base Table : RA_CUSTOMER_TRX_ALL
+   select * from ar_trx_errors_gt;
+              select * from  ar_trx_header_gt;
+			  
+--Custom Info
+Staging Table
+Custom PLSQL API
+Concurrent Program
+SQLLoader
+Data File 
+
+
+Receivables All

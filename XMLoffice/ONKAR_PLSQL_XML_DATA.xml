@@ -1,0 +1,92 @@
+<ROWSET>
+<ROW>
+<inventory_item_id>4656</inventory_item_id>
+<organization_code>M4</organization_code>
+<SEGMENT1>SMC4002</SEGMENT1>
+<description>Raw Chip Low Grade</description>
+</ROW>
+<ROW>
+<inventory_item_id>4658</inventory_item_id>
+<organization_code>M4</organization_code>
+<SEGMENT1>ASM1000</SEGMENT1>
+<description>Final Chip High Grade</description>
+</ROW>
+<ROW>
+<inventory_item_id>4654</inventory_item_id>
+<organization_code>M4</organization_code>
+<SEGMENT1>SMC4001</SEGMENT1>
+<description>Raw Chip Medium Grade</description>
+</ROW>
+<ROW>
+<inventory_item_id>4650</inventory_item_id>
+<organization_code>M4</organization_code>
+<SEGMENT1>SMC3002</SEGMENT1>
+<description>Die Low Grade</description>
+</ROW>
+<ROW>
+<inventory_item_id>4652</inventory_item_id>
+<organization_code>M4</organization_code>
+<SEGMENT1>SMC4000</SEGMENT1>
+<description>Raw Chip High Grade</description>
+</ROW>
+<ROW>
+<inventory_item_id>4111</inventory_item_id>
+<organization_code>M4</organization_code>
+<SEGMENT1>CM50000</SEGMENT1>
+<description>100 MM Raw Wafer</description>
+</ROW>
+<ROW>
+<inventory_item_id>4113</inventory_item_id>
+<organization_code>M4</organization_code>
+<SEGMENT1>AS80000</SEGMENT1>
+<description>Final Chip Assembly</description>
+</ROW>
+<ROW>
+<inventory_item_id>4115</inventory_item_id>
+<organization_code>M4</organization_code>
+<SEGMENT1>AS80001</SEGMENT1>
+<description>Final Chip Assembly High Grade</description>
+</ROW>
+<ROW>
+<inventory_item_id>4117</inventory_item_id>
+<organization_code>M4</organization_code>
+<SEGMENT1>AS80002</SEGMENT1>
+<description>Final Chip Assembly Medium Grade</description>
+</ROW>
+<ROW>
+<inventory_item_id>4119</inventory_item_id>
+<organization_code>M4</organization_code>
+<SEGMENT1>AS80005</SEGMENT1>
+<description>Final Chip Assembly Low Grade</description>
+</ROW>
+<ROW>
+<inventory_item_id>4121</inventory_item_id>
+<organization_code>M4</organization_code>
+<SEGMENT1>CM51000</SEGMENT1>
+<description>100 MM Processed Wafer</description>
+</ROW>
+<ROW>
+<inventory_item_id>4123</inventory_item_id>
+<organization_code>M4</organization_code>
+<SEGMENT1>CM53000</SEGMENT1>
+<description>Die</description>
+</ROW>
+<ROW>
+<inventory_item_id>4125</inventory_item_id>
+<organization_code>M4</organization_code>
+<SEGMENT1>CM53001</SEGMENT1>
+<description>Die High Grade</description>
+</ROW>
+<ROW>
+<inventory_item_id>4127</inventory_item_id>
+<organization_code>M4</organization_code>
+<SEGMENT1>CM53002</SEGMENT1>
+<description>Die Low Grade</description>
+</ROW>
+<ROW>
+<inventory_item_id>4129</inventory_item_id>
+<organization_code>M4</organization_code>
+<SEGMENT1>CM55000</SEGMENT1>
+<description>Raw Chip</description>
+</ROW>
+</ROWSET>

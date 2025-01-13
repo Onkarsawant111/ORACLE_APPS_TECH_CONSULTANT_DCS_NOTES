@@ -1,0 +1,81 @@
+#!/bin/sh
+echo "Starting the script"
+
+# +===========================================================================+
+# User Input for the driving the shell file
+# +===========================================================================+
+
+	    #USRNAME_PWD=$1  
+		#USERID=$2
+	    #USERNAME=$3
+	    #REQUESTID=$4
+        #PIV_CSV_FILE_NAME=$5 
+
+echo "Checking PIV_SUB_MODE"    
+
+
+echo "Operation selected: Import"
+echo "Importing data from .csv file to staging table"
+
+#HDR_LOG_FILE_NAME=$PIV_CSV_FILE_NAME.log
+#HDR_BAD_FILE_NAME=$PIV_CSV_FILE_NAME.bad
+#HDR_CSV_FILE_NAME=ItemData_OS.csv
+REPFILE=$APPLCSF/$APPLLOG/l$REQUESTID.req
+# +============================================+
+# Printing parameters
+# +============================================+
+echo "+----------------------------------------+"
+echo "Files for SQL Loader Process "
+echo " "
+echo "  CSV File :-" /u01/install/APPS/fs1/EBSapps/appl/xxdcs/12.0.0/bin/ItemData_OS.csv
+echo "	Control  :-" /u01/install/APPS/fs1/EBSapps/appl/xxdcs/12.0.0/bin/XXAK_ITEM_CONV_CTL_OS.ctl
+# echo "	Log File :-" $FND_TOP/bin/ItemData/inbound/$HDR_LOG_FILE_NAME
+# echo "	Bad File :-" $FND_TOP/bin/ItemData/inbound/$HDR_BAD_FILE_NAME
+echo " "
+echo "+----------------------------------------+"
+echo " "
+echo "Executing the SQL Loader Process.."
+echo "+----------------------------------------+"
+
+# +============================================+
+# Check the Control and csv files exists
+# +============================================+
+echo "Checking if Control file and Data file exists"
+echo " "
+if [ -s /u01/install/APPS/fs1/EBSapps/appl/xxdcs/12.0.0/bin/XXAK_ITEM_CONV_CTL_OS.ctl ] ; then
+echo "CONTROL FILE FOUND - XXAK_ITEM_CONV_CTL_OS.ctl exists"
+else
+echo "CONTROL FILE NOT FOUND - XXAK_ITEM_CONV_CTL_OS.ctl does not exist or is zero length"
+exit 0
+fi
+echo " "
+
+if [ -s /u01/install/APPS/fs1/EBSapps/appl/xxdcs/12.0.0/bin/ItemData_OS.csv ] ; then
+echo "DATA FILE FOUND: $HDR_CSV_FILE_NAME exists and is > 0 bytes"
+else
+echo "DATA FILE NOT FOUND: $HDR_CSV_FILE_NAME does not exist or is zero length"
+exit 0
+fi
+
+
+# +============================================+
+# Run SQLLDR
+# +============================================+
+
+echo "Run SQLLDR"
+sqlldr control= /u01/install/APPS/fs1/EBSapps/appl/xxdcs/bin/XXAK_ITEM_CONV_CTL_OS.ctl 
+userid=apps/apps data=/u01/install/APPS/fs1/EBSapps/appl/xxdcs/bin/ItemData_OS.csv 
+log= /u01/install/APPS/fs1/EBSapps/appl/xxdcs/bin/ItemData_OS.log 
+bad= /u01/install/APPS/fs1/EBSapps/appl/xxdcs/bin/ItemData_OS.bad>>$REPFILE
+
+# +=========================================================+
+# Copying Log Details into the concurrent program log file 
+# +=========================================================+
+item_archieve="ITEM_CONV_ARCHIEVE__`date "+%d_%h_%Y_%H_%M_%S"`"
+cat /u01/install/APPS/fs1/EBSapps/appl/xxdcs/bin/ItemData_OS.log > $REPFILE
+
+
+echo "Job ended at: `date`"
+
+echo "Process Complete for Data Load - Exiting"
+exit 0

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="WINDOWS-1252" ?>
+<dataTemplate name="ONKAR_XML_REPORT" description="TESTING XML REPORT"  Version="1.0">
+ <properties>
+  <property name ="debug_mode" value="on"/>
+ </properties>
+ <!--
+		<parameters>       
+		    <parameter name="P_ORG_ID" dataType="number"/>		
+		</parameters>
+-->		
+		<dataQuery>
+		   <sqlStatement name="Q_ONKAR_XML_REPORT">
+		   <![CDATA[ 
+				 select user_id, user_name, creation_date from fnd_user where ROWNUM<=20
+					 ]]>
+		    </sqlStatement>
+		</dataQuery>
+		
+  <dataStructure>
+		<group name="G_ONKAR_XML_REPORT" source="Q_ONKAR_XML_REPORT">
+		    <element name="user_id" value="user_id" />
+			<element name="user_name" value="user_name" />
+			<element name="creation_date" value="creation_date" />	
+		</group>
+   </dataStructure>
+</dataTemplate>

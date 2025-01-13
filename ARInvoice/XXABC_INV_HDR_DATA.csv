@@ -1,0 +1,3 @@
+trx_header_id,trx_currency,cust_trx_type_id,bill_to_customer_id,term_id,finance_charges,status_trx,printing_option,STATUS
+1,USD,1563,3347,1062,N,OP,NOT,I
+2,USD,1563,3347,1062,N,OP,NOT,I

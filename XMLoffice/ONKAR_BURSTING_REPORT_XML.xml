@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="WINDOWS-1252" ?>
+<dataTemplate name="ONKAR_BURSTING_REPORT_XML" description="EXAMPLE OF BURSTING REPORT" Version="1.0"> 
+ <properties>
+  <property name ="debug_mode" value="on"/>
+ </properties>
+		<!-- <parameters>       
+		    <parameter name="P_ORG_ID" dataType="number"/>		
+		    <parameter name="P_HEADER_ID" dataType="number"/> 
+		</parameters> -->
+		<dataQuery>
+		   <sqlStatement name="Q1">
+		   <![CDATA[ 
+		   select person_id, full_name, start_date, nationality FROM per_people_x WHERE nationality IN('IND')
+		   ]]>
+		    </sqlStatement>
+			
+			<sqlStatement name="Q2">
+		   <![CDATA[ 
+		   select person_id, full_name, start_date, nationality FROM per_people_x WHERE nationality IN('CAN')
+		   ]]>
+		    </sqlStatement>
+		</dataQuery>
+
+	<dataStructure>
+		<group name="G_EMP_DETAILS_IND" source="Q1">
+			<element name="person_id" value="person_id" />
+			<element name="full_name" value="full_name" />
+			<element name="start_date" value="start_date" />
+			<element name="nationality" value="nationality" />	
+		</group>
+		
+		<group name="G_EMP_DETAILS_CAN" source="Q2">
+			<element name="person_id" value="person_id" />
+			<element name="full_name" value="full_name" />
+			<element name="start_date" value="start_date" />
+			<element name="nationality" value="nationality" />	
+		</group>
+	</dataStructure>
+</dataTemplate>

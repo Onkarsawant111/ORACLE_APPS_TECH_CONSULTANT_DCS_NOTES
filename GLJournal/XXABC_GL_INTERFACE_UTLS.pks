@@ -1,0 +1,11 @@
+Create or replace package   XXABC_GL_INTERFACE_UTLS
+IS
+PROCEDURE IMPORT_JOURNAL_PROC
+
+(
+    errbuf  VARCHAR2,
+    retcode VARCHAR2 );
+
+END XXABC_GL_INTERFACE_UTLS ;
+/
+EXIT;
